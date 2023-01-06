@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { AccuracyEnum } from '../../utikities/accuracy.util';
+import { AccuracyEnum } from '../../utilities/accuracy.util';
+import { StyledLetterButton } from './index.style';
 
 interface ILetterProps {
     position: number
@@ -10,6 +11,14 @@ interface ILetterProps {
 export const Letter = ({position, value, accuracy}:ILetterProps) => {
     
     const [letterPosition, setLetterPosition] =useState(0)
-    const [letterValue, setLetterValue] = useState('')
-    const [letterAccuracy, setLetterAccuracy] = useState(AccuracyEnum.none)
+    const [letterValue, setLetterValue] = useState('') 
+    const [letterAccuracy, setLetterAccuracy] = useState(AccuracyEnum.none) 
+    
+    return (
+        <StyledLetterButton accuracy={accuracy}>
+            {value}
+        </StyledLetterButton>
+    )
 }
+
+export default Letter 
